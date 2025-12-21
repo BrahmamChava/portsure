@@ -1,0 +1,46 @@
+/* =====================================
+   DASHBOARD LAYOUT HELPERS
+   ===================================== */
+
+/* Main dashboard wrapper */
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page content spacing */
+.page-content {
+  flex: 1;
+  padding: 1rem;
+}
+
+/* Increase padding on larger screens */
+@media (min-width: 768px) {
+  .page-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Center content vertically when needed */
+.centered-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Scroll-safe table wrapper (extra safety) */
+.scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar visually but keep scroll */
+.scroll-x::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scroll-x::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.4); /* slate */
+  border-radius: 4px;
+}
