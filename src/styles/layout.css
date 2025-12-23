@@ -1,46 +1,235 @@
-/* =====================================
-   DASHBOARD LAYOUT HELPERS
-   ===================================== */
+/* =====================================================
+   PORTSURE – GLOBAL FINTECH DASHBOARD STYLES
+   ===================================================== */
 
-/* Main dashboard wrapper */
+/* ---------- ROOT BACKGROUND ---------- */
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  color: #0f172a;
+}
+
+/* ---------- DASHBOARD CONTAINER ---------- */
 .dashboard-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Page content spacing */
-.page-content {
+/* ---------- MAIN LAYOUT ---------- */
+.main-layout {
+  display: flex;
   flex: 1;
-  padding: 1rem;
+  overflow: hidden;
 }
 
-/* Increase padding on larger screens */
-@media (min-width: 768px) {
-  .page-content {
-    padding: 1.5rem;
-  }
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #0f172a, #1e293b);
+  color: #ffffff;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Center content vertically when needed */
-.centered-content {
+.sidebar h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Sidebar Links */
+.sidebar a {
+  display: block;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  color: #cbd5f5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.sidebar a.active {
+  background: linear-gradient(90deg, #14b8a6, #0d9488);
+  color: #ffffff;
+}
+
+/* ---------- TOP NAVBAR ---------- */
+.navbar {
+  height: 64px;
+  background: linear-gradient(90deg, #020617, #0f172a);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #14b8a6;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
 }
 
-/* Scroll-safe table wrapper (extra safety) */
-.scroll-x {
+/* ---------- PAGE CONTENT ---------- */
+.page-content {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+/* ---------- CARD ---------- */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+/* ---------- SUMMARY CARDS ---------- */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.summary-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.summary-card h3 {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.summary-card p {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* ---------- ALERTS ---------- */
+.alert {
+  border-left: 4px solid;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: #fff5f5;
+  box-shadow: 0 6px 15px rgba(15, 23, 42, 0.05);
+}
+
+.alert-danger {
+  border-color: #ef4444;
+}
+
+/* ---------- TABLE ---------- */
+.table-container {
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
-/* Hide scrollbar visually but keep scroll */
-.scroll-x::-webkit-scrollbar {
-  height: 6px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
-.scroll-x::-webkit-scrollbar-thumb {
-  background-color: rgba(100, 116, 139, 0.4); /* slate */
-  border-radius: 4px;
+thead {
+  background-color: #f1f5f9;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* ---------- STATUS BADGES ---------- */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-danger {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* ---------- BUTTON ---------- */
+.button-primary {
+  background: linear-gradient(135deg, #14b8a6, #0d9488);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(20, 184, 166, 0.35);
+}
+
+/* ---------- MOBILE RESPONSIVENESS ---------- */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .page-content {
+    padding: 1rem;
+  }
+
+  .navbar-title {
+    font-size: 1rem;
+  }
 }
